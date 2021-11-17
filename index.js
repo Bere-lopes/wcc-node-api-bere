@@ -33,7 +33,7 @@ app.put("/meu-primeiro-put/:id", function(req, res)  {
 
 app.delete("/meu-primeiro-delete/:id", function(req, res)  {
     console.log(req.params.id);
-    res.send("Meu delete funciona" + req.params.id);
+    res.send("Meu delete funciona, que legal!" + req.params.id);
 
 });
 
