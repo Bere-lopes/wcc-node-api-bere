@@ -12,4 +12,4 @@ module.exports = (app) => {
 
     app.use("/artigos", router);
 
-}
+};
