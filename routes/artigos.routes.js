@@ -8,8 +8,13 @@ module.exports = (app) => {
     const artigosController = require("../controllers/artigos.controller");
     let router = require("express").Router();
 
+    /*
+    router.post("/", artigosController.create);
+    app.use("/artigos", router);
+    */
+
+    router.get("/findAll", artigosController.findAll);
     router.post("/", artigosController.create);
 
-    app.use("/artigos", router);
-
+    app.use("/artigos", router)
 };
