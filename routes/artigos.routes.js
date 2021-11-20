@@ -4,17 +4,27 @@
 //Put - Plublicar um artigo
 //Delete - Deletar um artigo
 
-module.exports = (app) => {
+module.exports = (app)  => {
+    const artigosController = require("../controllers/artigos.controller");
+    let router = require("express").Router();
+}
+
+exports.findByPK = (app) => {
     const artigosController = require("../controllers/artigos.controller");
     let router = require("express").Router();
 
-    /*
     router.post("/", artigosController.create);
+
+    router.get("/", artigosController.findAll);
+    
+    router.get("/findByPK", artigosController.findByPK);
+
     app.use("/artigos", router);
-    */
+}
 
-    router.get("/findAll", artigosController.findAll);
-    router.post("/", artigosController.create);
 
-    app.use("/artigos", router)
-};
+
+
+    
+
+    
