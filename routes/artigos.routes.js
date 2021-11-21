@@ -5,23 +5,30 @@
 //Delete - Deletar um artigo
 
 module.exports = (app)  => {
-    const artigosController = require("../controllers/artigos.controller");
-    let router = require("express").Router();
-}
 
-exports.findByPK = (app) => {
     const artigosController = require("../controllers/artigos.controller");
     let router = require("express").Router();
 
+    
+    
     router.post("/", artigosController.create);
-
+    
     router.get("/", artigosController.findAll);
     
+    router.get("/findById", artigosController.findById)
+    
     router.get("/findByPK", artigosController.findByPK);
+    
+    router.get("/findByTitle", artigosController.findByTitle);
+    
+    router.get("/findOne", artigosController.findOne);
+
+    
+    
 
     app.use("/artigos", router);
-}
 
+}
 
 
 
