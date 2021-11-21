@@ -10,7 +10,7 @@ const database = {
     sequelizeDatabase: sequelizeDatabase,
 };
 
-const artigosModel = require("./artigos.model.js");
+const artigosModel = require("./artigos.model.js");//vai procurar o arquivo na pasta
 database.artigos = artigosModel (sequelizeDatabase, Sequelize);
 
 

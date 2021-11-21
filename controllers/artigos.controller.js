@@ -1,7 +1,4 @@
 // regras de negócio do sistema de artigos
-
-const { response } = require("express");
-const { artigos } = require("../models");
 const database = require("../models");
 const tabelaArtigos = database.artigos;
 
@@ -13,23 +10,18 @@ exports.create = (request, response) => {
         descricao: request.body.descricao,
         publicado: request.body.publicado
     };
-}
+
 
     // a promessa pode ser resolvida
     //ou ele pode ser rejeitada (exemplo: ocorreu um erro ao tentar salvar)
 
-    tabelaArtigos
-        .create(artigos)  
-            .then(function() {
-                response.send("Art igo criado com sucesso");
-          })
-          
-        .catch( function (error)  {
-           response
-            .status(500)
-            .send({ message: "Ocorreu um erro ao salvar o artigo"});
-    });
-
+    tabelaArtigos.create(artigo)  
+            .then(() => response.send("Artigo criado com sucesso")) 
+            .catch((error) => {
+                console.log(error);
+                response.status(500).send("Ocorreu um erro ao salvar o artigo");
+            });
+        }
     exports.findAll = (request, response) =>  {
      tabelaArtigos
         .findAll()

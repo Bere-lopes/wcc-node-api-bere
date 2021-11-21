@@ -13,7 +13,7 @@ module.exports = (app)  => {
     
     router.post("/", artigosController.create);
     
-    router.get("/", artigosController.findAll);
+    router.get("/findAll", artigosController.findAll);
     
     router.get("/findById", artigosController.findById)
     
