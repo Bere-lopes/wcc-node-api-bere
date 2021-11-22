@@ -19,11 +19,11 @@ module.exports = (app)  => {
     
     router.get("/findById", artigosController.findById);
         
-    
+    router.get("/published", artigosController.findAllPublished);
     
    
 
-    app.use("/artigos", router);
+    app.use("/articles", router);
 
 }
 

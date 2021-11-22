@@ -1,5 +1,4 @@
 // regras de negócio do sistema de artigos
-const { request, response } = require("express");
 const database = require("../models");
 const tabelaArtigos = database.artigos;
 
@@ -30,9 +29,16 @@ exports.create = (request, response) => {
             response.status(500).send("Ocorreu um erro ao buscar os artigos.");
         });
     };
-
+    
 // CRU -Create, Read, Update e Delete
+    exports.findAllPublished = (request, response) =>  {
+        tabelaArtigos.findAll({where: {publicado: true}})
+        .then(function (data)  {
+        }).catch(function (error) {
+            response.status(500).send("Não foi possível buscar os artigos publicado");
 
+        });
+    }
     exports.findByTitle = (request, response) =>  {
         const tituloArtigo = request.query.titulo;
         tabelaArtigos.findOne({where:{titulo: tituloArtigo}})  
