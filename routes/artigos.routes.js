@@ -21,7 +21,13 @@ module.exports = (app)  => {
         
     router.get("/published", artigosController.findAllPublished);
     
-   
+    router.put("/:id", artigosController.update);
+
+    router.put("/", artigosController.updateMany);
+
+    router.delete("/", artigosController.deleteAll);
+
+    router.delete("/:id", artigosController.delete);
 
     app.use("/articles", router);
 
